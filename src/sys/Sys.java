@@ -13,8 +13,12 @@ public class Sys {
     private final Queue<Customer> queue = new ArrayDeque<>();
     private final Queue<Event> eventsQueue = new PriorityQueue<>();
     private final Clock clock = new Clock();
-    private final ArrivalTimeGenerator arrivalTimeGen = new ArrivalTimeGenerator();
-    private final ServiceTimeGenerator serviceTimeGenerator = new ServiceTimeGenerator();
+
+    private final Random random = new Random();
+    private final ArrivalTimeGenerator arrivalTimeGen = new ArrivalTimeGenerator(random);
+
+
+    private final ServiceTimeGenerator serviceTimeGenerator = new ServiceTimeGenerator(random);
 
     private final List<Customer> customerList = new ArrayList<>();
 
